@@ -10,7 +10,7 @@ export function transform(
 		success,
 		data,
 		error: zodError,
-	} = subtitleVideoDTO.safeParse(request.params)
+	} = subtitleVideoDTO.safeParse(request.body)
 	if (!success) {
 		return reply
 			.status(400)

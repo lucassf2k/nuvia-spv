@@ -1,5 +1,3 @@
-import type { SubtitleVideoDTO } from '../../infrastructure/dtos/subtitle-video-dto'
-
 export type SubtitleVideoInput = {
 	file: string
 }
