@@ -1,6 +1,6 @@
-import type { FastifyReply, FastifyRequest } from 'fastify'
-import { subtitleVideo } from '../../application/use-case/subtitle-video'
-import { subtitleVideoDTO } from '../dtos/subtitle-video-dto'
+import type { FastifyReply, FastifyRequest } from 'fastify';
+import { subtitleVideo } from '../../application/use-case/subtitle-video';
+import { subtitleVideoDTO } from '../dtos/subtitle-video-dto';
 
 export function transform(
 	request: FastifyRequest,
@@ -10,14 +10,14 @@ export function transform(
 		success,
 		data,
 		error: zodError,
-	} = subtitleVideoDTO.safeParse(request.body)
+	} = subtitleVideoDTO.safeParse(request.body);
 	if (!success) {
 		return reply
 			.status(400)
-			.send({ validationErrors: zodError.errors[0].message })
+			.send({ validationErrors: zodError.errors[0].message });
 	}
-	console.log(data)
-	const { data: subtitledVideo, error, message } = subtitleVideo(data)
-	if (error) return reply.status(400).send({ error: message })
-	return reply.status(201).send({ message: subtitledVideo })
+	console.log(data);
+	const { data: subtitledVideo, error, message } = subtitleVideo(data);
+	if (error) return reply.status(400).send({ error: message });
+	return reply.status(201).send({ message: subtitledVideo });
 }
