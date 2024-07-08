@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const subtitleVideoDTO = z.object({
+export const videoDTO = z.object({
 	file: z
 		.string({
 			invalid_type_error: 'Espera-se uma string',
