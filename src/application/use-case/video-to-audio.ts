@@ -1,5 +1,3 @@
-import { createReadStream } from 'node:fs';
-import { OpenAiService } from '../../infrastructure/services/openai';
 import { FfmpegService } from '../../infrastructure/services/ffmpeg';
 
 export type InputVideoToAudio = {
@@ -7,14 +5,20 @@ export type InputVideoToAudio = {
 };
 
 export type OutputVideoToAudio = {
-	data: unknown;
+	outputPath: unknown;
 	error: boolean;
 };
+
+const OUTPUT_PATH =
+	'/home/lucassf/repos/studies/college/nuvia/back-nuvia-ssv/resources/';
 
 export async function videoToAudio(
 	input: InputVideoToAudio,
 ): Promise<OutputVideoToAudio> {
-	const sucess = await FfmpegService.toAudio(input.filePath, '');
-	if (!sucess) return { error: true, data: undefined };
-	return { data: undefined, error: false };
+	const paths = input.filePath.split('/');
+	const fileName = paths[paths.length - 1].split('.')[0];
+	const filePath = `${OUTPUT_PATH}${fileName}.mp3`;
+	const hasError = await FfmpegService.toAudio(input.filePath, filePath);
+	if (hasError) return { outputPath: undefined, error: hasError };
+	return { outputPath: filePath, error: hasError };
 }
