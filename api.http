@@ -1,8 +1,8 @@
 ## Transform 
 
-POST http://localhost:3001/transform
+POST http://localhost:3001/videos/audio
 Content-Type: application/json
 
 {
-  "file": "/home/lucassf/www/studies/college/nuvia/back-nuvia-ssv/resources"
+  "file": "/home/lucassf/repos/studies/college/nuvia/back-nuvia-ssv/resources/linear-art.mp4"
 }
