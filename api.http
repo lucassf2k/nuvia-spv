@@ -4,5 +4,5 @@ POST http://localhost:3001/videos/audio
 Content-Type: application/json
 
 {
-  "file": "/home/lucassf/repos/studies/college/nuvia/back-nuvia-ssv/resources/linear-art.mp4"
+  "file": "/home/lucassf/repos/nuvia-spv/resources/ext.mp4"
 }
