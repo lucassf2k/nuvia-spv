@@ -1,6 +1,6 @@
 ## Transform 
 
-POST http://localhost:3001/videos/audio
+POST http://localhost:3001/transform
 Content-Type: application/json
 
 {
