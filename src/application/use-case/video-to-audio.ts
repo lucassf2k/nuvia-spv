@@ -33,7 +33,7 @@ export async function videoToAudio(input: string): Promise<OutputVideoToAudio> {
   const paths = input.split("/");
   const fileName = paths[paths.length - 1].split(".")[0];
   const filePath = `${OUTPUT_PATH}${fileName}.mp3`;
-  new Promise((resolve, reject) => {
+  await new Promise((resolve, reject) => {
     Ffmpeg(response.data)
       .output(OUTPUT_PATH)
       .audioBitrate(AUDIO_BITRATE)
